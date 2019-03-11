@@ -8,5 +8,17 @@
 </head>
 <body>
   <canvas id="canvas" style="border: 1px solid #ccc;margin: 0 auto; display: block;"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas')
+    canvas.width = 1024
+    canvas.height = 700
+    var context = canvas.getContext('2d')
+    context.moveTo(100, 100);
+    context.lineTo(100, 500);
+    context.strokeStyle='red';
+    context.stroke();
+    
+    
+  </script>
 </body>
 </html>
