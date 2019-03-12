@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = [
+{
+"srcip": "222.186.153.21",
+"allcount": 35,
+"detail": [
+{
+"dstip": "10.20.169.155",
+"detail_count": 21,
+"dstTypes": [
+{
+"name": "HTTP_木马后门_webshell_PHP_eval_base64_decode木马",
+"typeNumber": 17
+},
+{
+"name": "HTTP_木马后门_webshell_PHP_eval一句话webshell",
+"typeNumber": 4
+}
+],
+},
+{
+"dstip": "10.20.169.156",
+"detail_count": 14,
+"dstTypes": [
+{
+"name": "HTTP_木马后门_webshell_PHP_eval_base64_decode木马",
+"typeNumber": 12
+},
+{
+"name": "HTTP_木马后门_webshell_PHP_eval一句话webshell",
+"typeNumber": 2
+}
+],
+}
+]
+}
+]
+var IpArr3 = []
+var IpArr2 = []
+var IpArr1 = []
+var IpAttack = []
+for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].detail.length; j++) {
+          for (let k = 0; k < arr[i].detail[j].dstTypes.length; k++) {
+            let obj3 = {
+              'name': arr[i].detail[j].dstTypes[k].name,
+              'value': arr[i].detail[j].dstTypes[k].typeNumber
+            }
+            IpArr3.push(obj3)
+            // if (IpArr3.length == arr[i].detail[j].dstTypes.length) {
+              
+            // }
+          }
+          let obj2 = {
+            'name': arr[i].detail[j].dstip,
+            'value': arr[i].detail[j].detail_count,
+            'children': IpArr3
+          }
+          IpArr2.push(obj2)
+          IpArr3 = []
+        }
+        let obj1 = {
+          'name': arr[i].srcip,
+          'value': arr[i].allcount,
+          'children': this.IpArr2
+        }
+        IpAttack.push(obj1)
+        console.log(IpAttack);
+      }
+  </script>
+</body>
+</html>
