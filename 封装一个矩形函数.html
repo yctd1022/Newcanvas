@@ -14,6 +14,7 @@
     canvas.height = 700
     var context = canvas.getContext('2d')
     border(context,100,100,400,400,20,'#ccc','red')
+    border1(context,350,350,400,400,20,'red','#ccc')
     function border(context,x,y,width,height,border,bac,col) {
       context.moveTo(x, y);
       context.lineTo(x + width, y);
@@ -25,6 +26,13 @@
       context.strokeStyle=col;
       context.fill();
       context.stroke();
+    }
+    function border1(context,x,y,width,height,border,bac,col) {
+      context.fillStyle=bac;
+      context.lineWidth=border;
+      context.strokeStyle=col;
+      context.fillRect(x,y,width,height);
+      context.strokeRect(x, y, width, height);
     }
   </script>
 </body>
