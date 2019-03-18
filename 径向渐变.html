@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas" style="border: 1px solid #ccc; display: block; margin: 0 auto"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas')
+    canvas.width = 700
+    canvas.height = 700
+    var context = canvas.getContext('2d')
+    var radial = context.createRadialGradient(300, 300, 0, 300, 300, 400);
+    radial.addColorStop(0.0, 'red');
+    radial.addColorStop(0.5, '#fff')
+    radial.addColorStop(1.0, '#000')
+    context.fillStyle = radial;
+    context.fillRect(0,0,700,700);
+    
+  </script>
+</body>
+</html>
