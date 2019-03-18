@@ -13,13 +13,27 @@
     canvas.width = 1024
     canvas.height = 700
     var context = canvas.getContext('2d')
+    context.fillStyle='#000';
+    context.fillRect(0,0,canvas.width,canvas.height);
+    // var x = 
+    name(context)
+    function name(context) {
+      context.save();
+      context.translate(100, 100);
+      drawStar(context)
+      context.restore();
+    }
     function drawStar(context) {
-      for (let i = 0; i < 6; i++) {
-        context.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * 300 + 400, 
-        -Math.sin((54 + i * 72) / 180 * Math.PI) * 300 +400);
-        context.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * 150 + 400, 
-        -Math.sin((54 + i * 72) / 180 * Math.PI) * 150 +400);
+      context.beginPath();
+      for (let i = 0; i < 5; i++) {
+        context.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * 300 , 
+        -Math.sin((18 + i * 72) / 180 * Math.PI) * 300);
+        context.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * 150 , 
+        -Math.sin((54 + i * 72) / 180 * Math.PI) * 150);
       }
+      context.closePath();
+      context.fillStyle='#fb3';
+      context.fill();
     }
   </script>
 </body>
