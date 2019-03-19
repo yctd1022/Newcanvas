@@ -7,6 +7,33 @@
   <title>Document</title>
 </head>
 <body>
-  <canvas id="canvas" style="display: block;"></canvas>
+  <canvas id="canvas" style="display: block;margin: 0 auto"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas')
+    canvas.width = 1024
+    canvas.height = 700
+    var context = canvas.getContext('2d')
+    var creLinear = context.createLinearGradient(0, 0, 0, canvas.height,);
+    creLinear.addColorStop(0.0, '#000');
+    creLinear.addColorStop(1.0, '#035');
+    context.fillStyle = creLinear;
+    context.fillRect(0 ,0 , canvas.width ,canvas.height);
+    function name(params) {
+      
+    }
+    drawStar(context)
+    function drawStar(context) {
+      context.beginPath();
+      for (let i = 0; i < 6; i++) {
+        context.lineTo(Math.cos((18 + i * 72) / 180 * Math.PI) * 20 + 300, 
+        -Math.sin((18 + i * 72) / 180 * Math.PI) * 20 * 0.5 + 300);
+        context.lineTo(Math.cos((54 + i * 72) / 180 * Math.PI) * 10 + 300, 
+        -Math.sin((54 + i * 72) / 180 * Math.PI) * 10 + 300);
+      }
+      context.fillStyle='#fb3';
+      context.fill();
+      // context.closePath();
+    }
+  </script>
 </body>
 </html>
