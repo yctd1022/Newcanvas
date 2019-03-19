@@ -18,15 +18,24 @@
     creLinear.addColorStop(1.0, '#035');
     context.fillStyle = creLinear;
     context.fillRect(0 ,0 , canvas.width ,canvas.height);
+
+    var creRadial = context.createRadialGradient(canvas.width / 2,canvas.height,0,canvas.width / 2,canvas.height,canvas.height);
+    creRadial.addColorStop(0.0, '#035')
+    creRadial.addColorStop(1.0, '#000')
+    context.fillStyle = creRadial;
+    context.fillRect(0,0, canvas.width ,canvas.height);
+    
     name(context)
     function name(context) {
       for (let i = 0; i < 200; i++) {
         var x = Math.random() * canvas.width
         var y = Math.random() * canvas.height * 0.6
         var r = Math.random() *5 + 5
+        var a = Math.random() * 360
         context.save();
         context.translate(x, y);
         context.scale(r, r);
+        context.rotate(Math.PI / 180 * a);
         drawStar(context)
         context.restore();
       }
