@@ -13,9 +13,15 @@
     canvas.height = 700
     canvas.width = 1024
     var context = canvas.getContext('2d')
-    context.arc(100, 100, 50, -1.5, Math.PI * 1, true);
-    context.lineTo(500, 100);
-    
+    context.beginPath();
+    context.arc(200-20, 200-20, 20, 0, Math.PI /2);
+    context.lineTo(20, 200);
+    context.arc(20, 200-20, 20, Math.PI / 2, Math.PI);
+    context.lineTo(0, 20);
+    context.arc(20, 20, 20, Math.PI , Math.PI / 2 *3);
+    context.lineTo(200-20, 0);
+    context.arc(200-20, 20, 20, Math.PI / 2 *3, Math.PI *2);
+    context.closePath();
     context.stroke();
   </script>
 </body>
