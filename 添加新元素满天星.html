@@ -26,6 +26,7 @@
     context.fillRect(0,0, canvas.width ,canvas.height);
     
     name(context)
+    Grassland(context)
     function name(context) {
       for (let i = 0; i < 200; i++) {
         var x = Math.random() * canvas.width
@@ -40,7 +41,17 @@
         context.restore();
       }
     }
-    
+    function Grassland(context) {
+      context.moveTo(0, 650);
+      context.bezierCurveTo(450, 500, 660, 670, 1024, 650);
+      context.lineTo(1024, 700);
+      context.lineTo(0, 700);
+      var landstyle = context.createLinearGradient(0, 700, 0, 0);
+      landstyle.addColorStop(0,'#030')
+      landstyle.addColorStop(1,'#580')
+      context.fillStyle = landstyle;
+      context.fill();
+    }
     function drawStar(context) {
       context.beginPath();
       for (let i = 0; i < 5; i++) {
