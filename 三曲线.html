@@ -13,7 +13,16 @@
     canvas.width = 1024
     canvas.height = 700
     var context = canvas.getContext('2d')
-    
+    context.save();
+    context.beginPath();
+    context.moveTo(0, 600);
+    context.bezierCurveTo(540, 400, 660, 800, 1024, 600);
+    context.lineTo(1024, 800);
+    context.lineTo(0, 800);
+    context.fillStyle='red';
+    context.fill();
+    context.closePath();
+    context.restore();
   </script>
 </body>
 </html>
